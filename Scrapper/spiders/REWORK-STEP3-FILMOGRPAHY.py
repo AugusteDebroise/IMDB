@@ -6,7 +6,11 @@ import js2xml
 from scrapy import Request
 from tutorial.items import FilmographyItem
 
-actor = pd.read_csv('/Users/augustedebroise/PycharmProjects/IMDB_scrapper/Scrapper/TOP_200_1990_2020_ACTOR')
+
+url_actor = 'https://raw.githubusercontent.com/AugusteDebroise/IMDB/main/TOP_200_1990_2020_ACTOR'
+actor = pd.read_csv(url_actor)
+
+##actor = pd.read_csv('/Users/augustedebroise/PycharmProjects/IMDB_scrapper/Scrapper/TOP_200_1990_2020_ACTOR')
 actor.drop_duplicates(subset='1', keep=False, inplace=True)
 actor = actor.reset_index(drop=True)
 url = actor["1"].tolist()
